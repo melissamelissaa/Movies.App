@@ -1,0 +1,55 @@
+:root {
+  --color1: #0b121e;
+  --color2: #111d33;
+  --color3: rgb(210, 48, 48);
+  --color4: #6c83ad;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  position: fixed;
+  background-color: var(--color2);
+  width: 100vw;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  gap: 17vw;
+}
+.navbar-icon {
+  color: var(--color4);
+  font-size: 1.5rem;
+}
+.clapperboard {
+  color: var(--color3);
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+.navbar-sections {
+  display: flex;
+  gap: 1.5rem;
+}
+.main {
+  background-color: var(--color1);
+  height: 100vh;
+  padding: 11vh 3vh 2vh 3vh;
+}
+.main-icon {
+  color: white;
+  font-size: 1.2rem;
+}
+.main-input {
+  width: 75vw;
+  height: 7vh;
+  border: none transparent;
+  outline: none;
+  background-color: var(--color1);
+  color: white;
+  margin-left: 0.7rem;
+}
+
+.main-input::placeholder {
+  color: rgb(137, 136, 136);
+  font-size: 1.2rem;
+}
