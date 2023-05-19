@@ -33,7 +33,7 @@ body {
 .main {
   background-color: var(--color1);
   height: 100vh;
-  padding: 11vh 3vh 2vh 3vh;
+  padding: 10vh 3vh 2vh 3vh;
 }
 .main-icon {
   color: white;
@@ -47,9 +47,34 @@ body {
   background-color: var(--color1);
   color: white;
   margin-left: 0.7rem;
+  font-size: 1.4rem;
 }
 
 .main-input::placeholder {
   color: rgb(137, 136, 136);
   font-size: 1.2rem;
 }
+.main-TrendingDiv {
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  gap: 8.8vw;
+  margin-left: 3.1vw;
+}
+.main-poster {
+  width: 9rem;
+  height: 12rem;
+  border-radius: 13px;
+  
+}
+.main-poster-div {
+  margin-bottom: 1rem;
+  width: 9rem;
+}
+.main {
+  color: white;
+  height: 430vh;
+}
+/* .main-movieTitle {
+ 
+} */
