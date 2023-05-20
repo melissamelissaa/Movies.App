@@ -15,10 +15,18 @@ export const Navbar = () => {
         icon={faClapperboard}
       />
       <div className="navbar-sections">
-        <FontAwesomeIcon className="navbar-icon bars" icon={faBars} />
-        <FontAwesomeIcon className="navbar-icon film" icon={faFilm} />
-        <FontAwesomeIcon className="navbar-icon tv" icon={faTv} />
-        <FontAwesomeIcon className="navbar-icon bookmark" icon={faBookmark} />
+        <a href="/">
+          <FontAwesomeIcon className="navbar-icon bars" icon={faBars} />
+        </a>
+        <a href="/movies">
+          <FontAwesomeIcon className="navbar-icon film" icon={faFilm} />
+        </a>
+        <a href="/tvSeries">
+          <FontAwesomeIcon className="navbar-icon tv" icon={faTv} />
+        </a>
+        <a href="/bookmarks">
+          <FontAwesomeIcon className="navbar-icon bookmark" icon={faBookmark} />
+        </a>
       </div>
     </div>
   );

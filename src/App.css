@@ -6,7 +6,6 @@
 }
 body {
   margin: 0;
-  padding: 0;
 }
 .navbar {
   position: fixed;
@@ -78,7 +77,7 @@ body {
 .movies-poster,
 .tvSeries-poster {
   width: 9rem;
-  height: 12rem;
+  height: 13rem;
   border-radius: 13px;
 }
 .main-poster-div,

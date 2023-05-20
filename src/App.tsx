@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import { Navbar } from "./Components/Navbar";
 import { Main } from "./Components/Main";
@@ -54,7 +55,7 @@ function App() {
       .then((response) => response.json())
       .then((response) => {
         console.log(response.results);
-        setResult3(response.results)
+        setResult3(response.results);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -62,10 +63,14 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Routes>
+        <Route path="/" element={<Main result={result} />} />
+        <Route path="/movies" element={<Movies result2={result2} />} />
+        <Route path="/tvseries" element={<TvSeries result3={result3} />} />
+        <Route path="/bookmarks" element={<Bookmarks />} />
+      </Routes>
+
       {/* <Main result={result} /> */}
-      {/* <Movies result2={result2} /> */}
-      {/* <Bookmarks /> */}
-      <TvSeries result3={result3}/>
     </div>
   );
 }

@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 type obj = {
-    backdrop_path: string;
-    name: string;
-    overview: string;
-    poster_path: string;
-} 
+  backdrop_path: string;
+  name: string;
+  overview: string;
+  poster_path: string;
+};
 
 type TvSeriesProps = {
   result3: obj[];
