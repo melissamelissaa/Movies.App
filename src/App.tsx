@@ -6,10 +6,14 @@ import { useState, useEffect } from "react";
 import { Navbar } from "./Components/Navbar";
 import { Main } from "./Components/Main";
 import { Bookmarks } from "./Components/Bookmarks";
+import { Movies } from "./Components/Movies";
+import { TvSeries } from "./Components/TvSeries";
 
 function App() {
   const [result, setResult] = useState([]);
-  const [movies, setMovies] = useState([]);
+  const [result2, setResult2] = useState([]);
+  const [result3, setResult3] = useState([]);
+
   const [bookmarkIsClicked, setBookmarkIsClicked] = useState(false);
 
   useEffect(() => {
@@ -28,7 +32,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.results);
         setResult(response.results);
       })
       .catch((err) => console.error(err));
@@ -40,7 +43,18 @@ function App() {
       .then((response) => response.json())
       .then((response) => {
         console.log(response.results);
-        setMovies(response.results);
+        setResult2(response.results);
+      })
+      .catch((err) => console.error(err));
+
+    fetch(
+      "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response.results);
+        setResult3(response.results)
       })
       .catch((err) => console.error(err));
   }, []);
@@ -48,8 +62,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Main result={result} />
+      {/* <Main result={result} /> */}
+      {/* <Movies result2={result2} /> */}
       {/* <Bookmarks /> */}
+      <TvSeries result3={result3}/>
     </div>
   );
 }

@@ -30,16 +30,24 @@ body {
   display: flex;
   gap: 1.5rem;
 }
-.main {
+.main,
+.movies,
+.tvSeries {
   background-color: var(--color1);
   height: 100vh;
   padding: 10vh 3vh 2vh 3vh;
+  color: white;
+  height: 400vh;
 }
-.main-icon {
+.main-icon,
+.movies-icon,
+.tvSeries-icon {
   color: white;
   font-size: 1.2rem;
 }
-.main-input {
+.main-input,
+.movies-input,
+.tvSeries-input {
   width: 75vw;
   height: 7vh;
   border: none transparent;
@@ -50,31 +58,32 @@ body {
   font-size: 1.4rem;
 }
 
-.main-input::placeholder {
+.main-input::placeholder,
+.movies-input::placeholder
+.tvSeries-input::placeholder {
   color: rgb(137, 136, 136);
   font-size: 1.2rem;
 }
-.main-TrendingDiv {
+
+.main-TrendingDiv,
+.movies-TrendingDiv,
+.tvSeries-TrendingDiv {
   display: flex;
   flex-wrap: wrap;
   color: white;
   gap: 8.8vw;
   margin-left: 3.1vw;
 }
-.main-poster {
+.main-poster,
+.movies-poster,
+.tvSeries-poster {
   width: 9rem;
   height: 12rem;
   border-radius: 13px;
-  
 }
-.main-poster-div {
+.main-poster-div,
+.movies-poster-div,
+.tvSeries-poster-div {
   margin-bottom: 1rem;
   width: 9rem;
 }
-.main {
-  color: white;
-  height: 430vh;
-}
-/* .main-movieTitle {
- 
-} */

@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Url } from "url";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
-type resultObj = {
+export type resultObj = {
   backdrop_path: string;
   original_title: string;
   overview: string;
