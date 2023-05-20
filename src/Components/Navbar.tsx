@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import {
   faClapperboard,
   faTv,
@@ -15,18 +16,18 @@ export const Navbar = () => {
         icon={faClapperboard}
       />
       <div className="navbar-sections">
-        <a href="/">
+        <Link to="/">
           <FontAwesomeIcon className="navbar-icon bars" icon={faBars} />
-        </a>
-        <a href="/movies">
+        </Link>
+        <Link to="/movies">
           <FontAwesomeIcon className="navbar-icon film" icon={faFilm} />
-        </a>
-        <a href="/tvSeries">
+        </Link>
+        <Link to="/tvSeries">
           <FontAwesomeIcon className="navbar-icon tv" icon={faTv} />
-        </a>
-        <a href="/bookmarks">
+        </Link>
+        <Link to="/bookmarks">
           <FontAwesomeIcon className="navbar-icon bookmark" icon={faBookmark} />
-        </a>
+        </Link>
       </div>
     </div>
   );
