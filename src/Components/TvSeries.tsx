@@ -25,9 +25,9 @@ export const TvSeries = (props: TvSeriesProps) => {
         ></input>
       </div>
 
-      <div className="tvSeries-TrendingDiv">
+      <div className="tvSeries-TrendingDiv" >
         {props.result3.map((res) => (
-          <div className="tvSeries-poster-div">
+          <div className="tvSeries-poster-div" key={Math.random() * 10000}>
             <img
               className="tvSeries-poster"
               src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}

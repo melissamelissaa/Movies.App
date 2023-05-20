@@ -18,7 +18,7 @@ export const Movies = (props: moviesProps) => {
       </div>
       <div className="movies-TrendingDiv">
         {props.result2.map((res) => (
-          <div className="movies-poster-div">
+          <div className="movies-poster-div" key={Math.random() * 1000}>
             <img
               className="movies-poster"
               src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}

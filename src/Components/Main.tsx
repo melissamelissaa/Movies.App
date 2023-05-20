@@ -31,7 +31,7 @@ export const Main = (props: mainProps) => {
       <h1 className="main-trending">Trending</h1>
       <div className="main-TrendingDiv">
         {props.result.map((res) => (
-          <div className="main-poster-div">
+          <div className="main-poster-div"  key={Math.random() * 100000}>
             <img
               className="main-poster"
               src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
