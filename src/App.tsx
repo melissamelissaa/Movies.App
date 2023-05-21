@@ -3,7 +3,7 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import options  from "./options";
+import options from "./options";
 
 import { Navbar } from "./Components/Navbar";
 import { Main } from "./Components/Main";
@@ -21,13 +21,12 @@ function App() {
   const [tvInput, setTvInput] = useState("");
   const [bookmarkInput, setBookmarkInput] = useState("");
 
-  const [inputedMainResult, setInputedMainResult] = useState([])
-  const [inputedMoviesResult, setInputedMoviesResult] = useState([])
-  const [inputedTvResult, setInputedTvResult] = useState([])
-  const [inputedBookmarkResult, setInputedBookmarkResult] = useState([])
+  const [inputedMainResult, setInputedMainResult] = useState([]);
+  const [inputedMoviesResult, setInputedMoviesResult] = useState([]);
+  const [inputedTvResult, setInputedTvResult] = useState([]);
+  const [inputedBookmarkResult, setInputedBookmarkResult] = useState([]);
 
   const [bookmarkIsClicked, setBookmarkIsClicked] = useState(false);
-
 
   useEffect(() => {
     fetch(
@@ -68,11 +67,23 @@ function App() {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.results);
         setInputedMainResult(response.results);
       })
       .catch((err) => console.error(err));
   }, [mainInput]);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${moviesInput}&language=en-US`,
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response.results);
+        setInputedMoviesResult(response.results);
+      })
+      .catch((err) => console.error(err));
+  }, [moviesInput]);
 
   return (
     <div className="App">
@@ -80,11 +91,23 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Main result={result} setValue={setMainInput} inputedMainResult={inputedMainResult}/>}
+          element={
+            <Main
+              result={result}
+              setValue={setMainInput}
+              inputedMainResult={inputedMainResult}
+            />
+          }
         />
         <Route
           path="/movies"
-          element={<Movies result2={result2} setValue={setMoviesInput} />}
+          element={
+            <Movies
+              result2={result2}
+              setValue={setMoviesInput}
+              inputedMoviesResult={inputedMoviesResult}
+            />
+          }
         />
         <Route
           path="/tvseries"

@@ -11,7 +11,7 @@ type obj = {
 
 type TvSeriesProps = {
   result3: obj[];
- setValue: Function;
+  setValue: Function;
 };
 
 export const TvSeries = (props: TvSeriesProps) => {
