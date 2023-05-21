@@ -1,6 +1,7 @@
 import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 type moviesProps = {
   result2: resultObj[];
   setValue: Function;
@@ -23,6 +24,12 @@ export const Movies = (props: moviesProps) => {
         <div className="movies-TrendingDiv">
           {props.result2.map((res) => (
             <div className="movies-poster-div" key={Math.random() * 1000}>
+              <div className="bookmarkDiv">
+                <FontAwesomeIcon
+                  className="movies-bookmark"
+                  icon={faBookmark}
+                />
+              </div>
               <img
                 className="movies-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
@@ -48,6 +55,12 @@ export const Movies = (props: moviesProps) => {
         <div className="main-TrendingDiv">
           {props.inputedMoviesResult.map((res) => (
             <div className="main-poster-div" key={Math.random() * 100000}>
+              <div className="bookmarkDiv">
+                <FontAwesomeIcon
+                  className="movies-bookmark"
+                  icon={faBookmark}
+                />
+              </div>
               <img
                 className="main-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}` || ""}

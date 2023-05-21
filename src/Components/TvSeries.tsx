@@ -1,6 +1,7 @@
 import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 type obj = {
   backdrop_path: string;
@@ -32,6 +33,12 @@ export const TvSeries = (props: TvSeriesProps) => {
         <div className="tvSeries-TrendingDiv">
           {props.result3.map((res) => (
             <div className="tvSeries-poster-div" key={Math.random() * 10000}>
+              <div className="bookmarkDiv">
+                <FontAwesomeIcon
+                  className="movies-bookmark"
+                  icon={faBookmark}
+                />
+              </div>
               <img
                 className="tvSeries-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
@@ -57,6 +64,12 @@ export const TvSeries = (props: TvSeriesProps) => {
         <div className="main-TrendingDiv">
           {props.inputedTvResult.map((res) => (
             <div className="main-poster-div" key={Math.random() * 100000}>
+              <div className="bookmarkDiv">
+                <FontAwesomeIcon
+                  className="movies-bookmark"
+                  icon={faBookmark}
+                />
+              </div>
               <img
                 className="main-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}` || ""}

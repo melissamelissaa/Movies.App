@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
 :root {
   --color1: #0b121e;
   --color2: #111d33;
@@ -6,6 +7,7 @@
 }
 body {
   margin: 0;
+  font-family: "Karla", sans-serif;
 }
 .navbar {
   position: fixed;
@@ -15,6 +17,7 @@ body {
   display: flex;
   align-items: center;
   gap: 17vw;
+  z-index: 2;
 }
 .navbar-icon {
   color: var(--color4);
@@ -58,8 +61,7 @@ body {
 }
 
 .main-input::placeholder,
-.movies-input::placeholder
-.tvSeries-input::placeholder {
+.movies-input::placeholder .tvSeries-input::placeholder {
   color: rgb(137, 136, 136);
   font-size: 1.2rem;
 }
@@ -85,4 +87,18 @@ body {
 .tvSeries-poster-div {
   margin-bottom: 1rem;
   width: 9rem;
+  position: relative;
+}
+
+.bookmarkDiv {
+  position: absolute;
+  left: 74%;
+  margin-top: 0.6rem;
+  background-color: rgba(130, 129, 129, 0.7);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }

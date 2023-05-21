@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Url } from "url";
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 export type resultObj = {
   backdrop_path: string;
@@ -36,6 +36,12 @@ export const Main = (props: mainProps) => {
         <div className="main-TrendingDiv">
           {props.result.map((res) => (
             <div className="main-poster-div" key={Math.random() * 100000}>
+              <div className="bookmarkDiv">
+                <FontAwesomeIcon
+                  className="movies-bookmark"
+                  icon={faBookmark}
+                />
+              </div>
               <img
                 className="main-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
@@ -61,6 +67,12 @@ export const Main = (props: mainProps) => {
         <div className="main-TrendingDiv">
           {props.inputedMainResult.map((res) => (
             <div className="main-poster-div" key={Math.random() * 100000}>
+              <div className="bookmarkDiv">
+                <FontAwesomeIcon
+                  className="movies-bookmark"
+                  icon={faBookmark}
+                />
+              </div>
               <img
                 className="main-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}` || ""}
