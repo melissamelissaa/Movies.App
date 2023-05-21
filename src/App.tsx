@@ -79,12 +79,23 @@ function App() {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.results);
         setInputedMoviesResult(response.results);
       })
       .catch((err) => console.error(err));
   }, [moviesInput]);
 
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${tvInput}&language=en-US`,
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response.results);
+        setInputedTvResult(response.results);
+      })
+      .catch((err) => console.error(err));
+  }, [tvInput]);
   return (
     <div className="App">
       <Navbar />
@@ -111,7 +122,13 @@ function App() {
         />
         <Route
           path="/tvseries"
-          element={<TvSeries result3={result3} setValue={setTvInput} />}
+          element={
+            <TvSeries
+              result3={result3}
+              setValue={setTvInput}
+              inputedTvResult={inputedTvResult}
+            />
+          }
         />
         <Route
           path="/bookmarks"
