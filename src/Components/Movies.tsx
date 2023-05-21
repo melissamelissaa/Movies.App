@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 type moviesProps = {
   result2: resultObj[];
+  setValue: Function;
 };
 
 export const Movies = (props: moviesProps) => {

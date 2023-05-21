@@ -11,6 +11,7 @@ type obj = {
 
 type TvSeriesProps = {
   result3: obj[];
+ setValue: Function;
 };
 
 export const TvSeries = (props: TvSeriesProps) => {
@@ -25,7 +26,7 @@ export const TvSeries = (props: TvSeriesProps) => {
         ></input>
       </div>
 
-      <div className="tvSeries-TrendingDiv" >
+      <div className="tvSeries-TrendingDiv">
         {props.result3.map((res) => (
           <div className="tvSeries-poster-div" key={Math.random() * 10000}>
             <img

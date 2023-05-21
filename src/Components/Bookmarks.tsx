@@ -1,6 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-export const Bookmarks = () => {
+
+type bookmarksProps = {
+  setValue: Function;
+};
+export const Bookmarks = (props: bookmarksProps) => {
   return (
     <div className="main">
       <div className="main-search">
