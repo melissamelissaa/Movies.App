@@ -2,10 +2,14 @@ import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { MouseEventHandler } from "react";
+import { Bookmarks } from "./Bookmarks";
+
 type moviesProps = {
   result2: resultObj[];
   setValue: Function;
   inputedMoviesResult: resultObj[];
+  // handleBookmark: (title: string) => MouseEventHandler;
 };
 
 export const Movies = (props: moviesProps) => {
@@ -24,7 +28,27 @@ export const Movies = (props: moviesProps) => {
         <div className="movies-TrendingDiv">
           {props.result2.map((res) => (
             <div className="movies-poster-div" key={Math.random() * 1000}>
-              <div className="bookmarkDiv">
+              <div
+                className="bookmarkDiv"
+                onClick={() => {
+                  if (localStorage.getItem("Bookmarks")) {
+                    const str: string = localStorage.getItem("Bookmarks") || "";
+                    let arr = JSON.parse(str);
+                    const found = arr.find(
+                      (movie: string) => movie === res.title
+                    );
+                    if (!found) {
+                      arr.push(res.title);
+                    } else {
+                      arr = arr.filter((movie: string) => movie !== res.title);
+                    }
+                    localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                  } else {
+                    const arr = [res.title];
+                    localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                  }
+                }}
+              >
                 <FontAwesomeIcon
                   className="movies-bookmark"
                   icon={faBookmark}

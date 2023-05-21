@@ -71,9 +71,9 @@ body {
 .tvSeries-TrendingDiv {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   color: white;
   gap: 8.8vw;
-  margin-left: 3.1vw;
 }
 .main-poster,
 .movies-poster,
