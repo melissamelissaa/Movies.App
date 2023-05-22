@@ -28,9 +28,9 @@ function App() {
 
   const [bookmarkIsClicked, setBookmarkIsClicked] = useState(false);
   const [path, setPath] = useState("");
-  
+
   useEffect(() => {
-    console.log(window.location.pathname)
+    console.log(window.location.pathname);
     setPath(window.location.pathname);
   }, []);
 

@@ -17,7 +17,7 @@ export const Bookmarks = (props: bookmarksProps) => {
 
   useEffect(() => {
     props.setPath(window.location.pathname);
-    
+
     const bookmarked = localStorage.getItem("Bookmarks") || "";
     if (bookmarked === "") return;
     setBookmarkedData(JSON.parse(bookmarked));
@@ -48,33 +48,33 @@ export const Bookmarks = (props: bookmarksProps) => {
           className="main-input"
         ></input>
       </div>
-      <div className="bookmarked-div" >
-      {bookmarkedData.map((res) => (
-        <div className="movies-poster-div" key={Math.random() * 1000}>
-          <div
-            className="bookmarkDiv"
-            onClick={() => {
-              if (localStorage.getItem("Bookmarks")) {
-                const str: string = localStorage.getItem("Bookmarks") || "";
-                let arr = JSON.parse(str);
+      <div className="bookmarked-div">
+        {bookmarkedData.map((res) => (
+          <div className="movies-poster-div" key={Math.random() * 1000}>
+            <div
+              className="bookmarkDiv"
+              onClick={() => {
+                if (localStorage.getItem("Bookmarks")) {
+                  const str: string = localStorage.getItem("Bookmarks") || "";
+                  let arr = JSON.parse(str);
 
-                arr = arr.filter((movie: any) => movie.title !== res.title);
+                  arr = arr.filter((movie: any) => movie.title !== res.title);
 
-                localStorage.setItem("Bookmarks", JSON.stringify(arr));
-                setBookmarkedData(arr)
-              }
-            }}
-          >
-            <FontAwesomeIcon className="movies-bookmark" icon={faBookmark} />
+                  localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                  setBookmarkedData(arr);
+                }
+              }}
+            >
+              <FontAwesomeIcon className="movies-bookmark" icon={faBookmark} />
+            </div>
+            <img
+              className="movies-poster"
+              src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
+            />
+            <p className="movies-movieTitle">{res.title}</p>
           </div>
-          <img
-            className="movies-poster"
-            src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
-          />
-          <p className="movies-movieTitle">{res.title}</p>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };

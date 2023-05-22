@@ -1,11 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
-
-
 
 type moviesProps = {
   result2: resultObj[];
@@ -17,8 +15,8 @@ type moviesProps = {
 
 export const Movies = (props: moviesProps) => {
   useEffect(() => {
-      props.setPath(window.location.pathname);
-    }, []);
+    props.setPath(window.location.pathname);
+  }, []);
 
   if (props.inputedMoviesResult.length === 0) {
     return (
@@ -47,7 +45,9 @@ export const Movies = (props: moviesProps) => {
                     if (!found) {
                       arr.push(res);
                     } else {
-                      arr = arr.filter((movie: any) => movie.title !== res.title);
+                      arr = arr.filter(
+                        (movie: any) => movie.title !== res.title
+                      );
                     }
                     localStorage.setItem("Bookmarks", JSON.stringify(arr));
                   } else {
