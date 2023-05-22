@@ -2,8 +2,8 @@ import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
-import { MouseEventHandler } from "react";
-import { Bookmarks } from "./Bookmarks";
+
+
 
 type moviesProps = {
   result2: resultObj[];
@@ -35,16 +35,16 @@ export const Movies = (props: moviesProps) => {
                     const str: string = localStorage.getItem("Bookmarks") || "";
                     let arr = JSON.parse(str);
                     const found = arr.find(
-                      (movie: string) => movie === res.title
+                      (movie: any) => movie.title === res.title
                     );
                     if (!found) {
-                      arr.push(res.title);
+                      arr.push(res);
                     } else {
-                      arr = arr.filter((movie: string) => movie !== res.title);
+                      arr = arr.filter((movie: any) => movie.title !== res.title);
                     }
                     localStorage.setItem("Bookmarks", JSON.stringify(arr));
                   } else {
-                    const arr = [res.title];
+                    const arr = [res];
                     localStorage.setItem("Bookmarks", JSON.stringify(arr));
                   }
                 }}

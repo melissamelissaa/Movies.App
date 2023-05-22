@@ -5,6 +5,7 @@ import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 type obj = {
   backdrop_path: string;
+  title: string;
   name: string;
   overview: string;
   poster_path: string;
@@ -33,7 +34,30 @@ export const TvSeries = (props: TvSeriesProps) => {
         <div className="tvSeries-TrendingDiv">
           {props.result3.map((res) => (
             <div className="tvSeries-poster-div" key={Math.random() * 10000}>
-              <div className="bookmarkDiv">
+              <div
+                className="bookmarkDiv"
+                onClick={() => {
+                  if (localStorage.getItem("Bookmarks")) {
+                    const str: string = localStorage.getItem("Bookmarks") || "";
+                    let arr = JSON.parse(str);
+                    const found = arr.find(
+                      (movie: any) => movie.title === res.name
+                    );
+                    if (!found) {
+                      res.title = res.name
+                      arr.push(res);
+                    } else {
+                      arr = arr.filter(
+                        (movie: any) => movie.title !== res.name
+                      );
+                    }
+                    localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                  } else {
+                    const arr = [res];
+                    localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                  }
+                }}
+              >
                 <FontAwesomeIcon
                   className="movies-bookmark"
                   icon={faBookmark}

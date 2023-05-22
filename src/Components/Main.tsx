@@ -36,7 +36,25 @@ export const Main = (props: mainProps) => {
         <div className="main-TrendingDiv">
           {props.result.map((res) => (
             <div className="main-poster-div" key={Math.random() * 100000}>
-              <div className="bookmarkDiv">
+              <div className="bookmarkDiv"
+              onClick={() => {
+                if (localStorage.getItem("Bookmarks")) {
+                  const str: string = localStorage.getItem("Bookmarks") || "";
+                  let arr = JSON.parse(str);
+                  const found = arr.find(
+                    (movie: any) => movie.title === res.title
+                  );
+                  if (!found) {
+                    arr.push(res);
+                  } else {
+                    arr = arr.filter((movie: any) => movie.title !== res.title);
+                  }
+                  localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                } else {
+                  const arr = [res];
+                  localStorage.setItem("Bookmarks", JSON.stringify(arr));
+                }
+              }}>
                 <FontAwesomeIcon
                   className="movies-bookmark"
                   icon={faBookmark}
