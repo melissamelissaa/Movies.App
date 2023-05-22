@@ -105,47 +105,49 @@ function App() {
   return (
     <div className="App">
       <Navbar path={path} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Main
-              result={result}
-              setValue={setMainInput}
-              setPath={setPath}
-              inputedMainResult={inputedMainResult}
-            />
-          }
-        />
-        <Route
-          path="/movies"
-          element={
-            <Movies
-              result2={result2}
-              setValue={setMoviesInput}
-              setPath={setPath}
-              inputedMoviesResult={inputedMoviesResult}
-            />
-          }
-        />
-        <Route
-          path="/tvseries"
-          element={
-            <TvSeries
-              result3={result3}
-              setValue={setTvInput}
-              setPath={setPath}
-              inputedTvResult={inputedTvResult}
-            />
-          }
-        />
-        <Route
-          path="/bookmarks"
-          element={<Bookmarks setPath={setPath} setValue={setBookmarkInput} />}
-        />
-      </Routes>
-
-      {/* <Main result={result} /> */}
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main
+                result={result}
+                setValue={setMainInput}
+                setPath={setPath}
+                inputedMainResult={inputedMainResult}
+              />
+            }
+          />
+          <Route
+            path="/movies"
+            element={
+              <Movies
+                result2={result2}
+                setValue={setMoviesInput}
+                setPath={setPath}
+                inputedMoviesResult={inputedMoviesResult}
+              />
+            }
+          />
+          <Route
+            path="/tvseries"
+            element={
+              <TvSeries
+                result3={result3}
+                setValue={setTvInput}
+                setPath={setPath}
+                inputedTvResult={inputedTvResult}
+              />
+            }
+          />
+          <Route
+            path="/bookmarks"
+            element={
+              <Bookmarks setPath={setPath} setValue={setBookmarkInput} />
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
 }

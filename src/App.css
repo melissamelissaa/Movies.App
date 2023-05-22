@@ -106,3 +106,35 @@ body {
 .active {
   color: white;
 }
+
+.noBookmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25vh 0;
+}
+.noBookmark-p {
+  font-size: 1.5rem;
+  color: rgb(73, 73, 73);
+}
+@media only screen and (min-width: 500px) {
+  .navbar-sections {
+    margin-left: 3rem;
+  }
+}
+
+/* @media (min-width: 1100px) {
+  .App {
+    display: flex;
+    flex-direction: row;
+  }
+  .navbar {
+  width: 100vw;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  gap: 17vw;
+  z-index: 2;
+}
+
+} */
