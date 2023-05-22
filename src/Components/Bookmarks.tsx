@@ -34,7 +34,9 @@ export const Bookmarks = (props: bookmarksProps) => {
             className="main-input"
           ></input>
         </div>
-        <p>There are no bookmarks yet</p>
+        <div className="noBookmark">
+        <p className="noBookmark-p">There are no bookmarks yet...</p>
+        </div>
       </div>
     );
   }
