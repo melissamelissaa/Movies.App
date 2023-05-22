@@ -123,18 +123,59 @@ body {
   }
 }
 
-/* @media (min-width: 1100px) {
+@media (min-width: 1100px) {
   .App {
     display: flex;
     flex-direction: row;
   }
   .navbar {
-  width: 100vw;
-  height: 9vh;
-  display: flex;
-  align-items: center;
-  gap: 17vw;
-  z-index: 2;
+    width: 5vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5vw;
+  }
+  .navbar-sections {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    gap: 2rem;
+  }
+  .clapperboard {
+    margin: 2rem 0 0 0;
+  }
+  .poster-rendering-div {
+    padding-left: 2rem;
+    width: 100vw;
+  }
+  .main,
+  .movies,
+  .tvSeries {
+    background-color: var(--color1);
+    height: 100vh;
+    padding: 2vh 15vh 10vh 10vh;
+    color: white;
+    height: 400vh;
+  }
+  .main-poster,
+  .movies-poster,
+  .tvSeries-poster {
+    width: 12rem;
+    height: 17rem;
+    border-radius: 13px;
+  }
+  .bookmarked-div,
+  .main-TrendingDiv,
+  .movies-TrendingDiv,
+  .tvSeries-TrendingDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw;
+  }
+  .bookmarkDiv {
+    left: 105%;
+  }
 }
-
-} */

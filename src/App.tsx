@@ -105,7 +105,7 @@ function App() {
   return (
     <div className="App">
       <Navbar path={path} />
-      <div>
+      <div className="poster-rendering-div">
         <Routes>
           <Route
             path="/"
