@@ -27,6 +27,12 @@ function App() {
   const [inputedBookmarkResult, setInputedBookmarkResult] = useState([]);
 
   const [bookmarkIsClicked, setBookmarkIsClicked] = useState(false);
+  const [path, setPath] = useState("");
+  
+  useEffect(() => {
+    console.log(window.location.pathname)
+    setPath(window.location.pathname);
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -98,7 +104,7 @@ function App() {
   }, [tvInput]);
   return (
     <div className="App">
-      <Navbar />
+      <Navbar path={path} />
       <Routes>
         <Route
           path="/"
@@ -106,6 +112,7 @@ function App() {
             <Main
               result={result}
               setValue={setMainInput}
+              setPath={setPath}
               inputedMainResult={inputedMainResult}
             />
           }
@@ -116,6 +123,7 @@ function App() {
             <Movies
               result2={result2}
               setValue={setMoviesInput}
+              setPath={setPath}
               inputedMoviesResult={inputedMoviesResult}
             />
           }
@@ -126,13 +134,14 @@ function App() {
             <TvSeries
               result3={result3}
               setValue={setTvInput}
+              setPath={setPath}
               inputedTvResult={inputedTvResult}
             />
           }
         />
         <Route
           path="/bookmarks"
-          element={<Bookmarks setValue={setBookmarkInput} />}
+          element={<Bookmarks setPath={setPath} setValue={setBookmarkInput} />}
         />
       </Routes>
 

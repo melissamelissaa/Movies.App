@@ -66,15 +66,6 @@ body {
   font-size: 1.2rem;
 }
 
-.main-TrendingDiv,
-.movies-TrendingDiv,
-.tvSeries-TrendingDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  color: white;
-  gap: 8.8vw;
-}
 .main-poster,
 .movies-poster,
 .tvSeries-poster {
@@ -101,4 +92,17 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+}
+.bookmarked-div,
+.main-TrendingDiv,
+.movies-TrendingDiv,
+.tvSeries-TrendingDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8.8vw;
+}
+
+.active {
+  color: white;
 }

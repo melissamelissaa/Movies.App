@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -14,10 +16,15 @@ type obj = {
 type TvSeriesProps = {
   result3: obj[];
   setValue: Function;
+  setPath: Function;
   inputedTvResult: resultObj[];
 };
 
 export const TvSeries = (props: TvSeriesProps) => {
+  useEffect(() => {
+    props.setPath(window.location.pathname);
+  }, []);
+
   if (props.inputedTvResult.length === 0) {
     return (
       <div className="tvSeries">
@@ -44,7 +51,7 @@ export const TvSeries = (props: TvSeriesProps) => {
                       (movie: any) => movie.title === res.name
                     );
                     if (!found) {
-                      res.title = res.name
+                      res.title = res.name;
                       arr.push(res);
                     } else {
                       arr = arr.filter(

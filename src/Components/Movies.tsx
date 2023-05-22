@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -9,10 +11,15 @@ type moviesProps = {
   result2: resultObj[];
   setValue: Function;
   inputedMoviesResult: resultObj[];
+  setPath: Function;
   // handleBookmark: (title: string) => MouseEventHandler;
 };
 
 export const Movies = (props: moviesProps) => {
+  useEffect(() => {
+      props.setPath(window.location.pathname);
+    }, []);
+
   if (props.inputedMoviesResult.length === 0) {
     return (
       <div className="movies">

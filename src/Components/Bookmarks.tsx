@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 import { resultObj } from "./Main";
 
 type bookmarksProps = {
   setValue: Function;
+  setPath: Function;
 };
 const obj: resultObj[] = [];
 
@@ -15,6 +16,8 @@ export const Bookmarks = (props: bookmarksProps) => {
   const [bookmarkedData, setBookmarkedData] = useState(obj);
 
   useEffect(() => {
+    props.setPath(window.location.pathname);
+    
     const bookmarked = localStorage.getItem("Bookmarks") || "";
     if (bookmarked === "") return;
     setBookmarkedData(JSON.parse(bookmarked));
@@ -45,6 +48,7 @@ export const Bookmarks = (props: bookmarksProps) => {
           className="main-input"
         ></input>
       </div>
+      <div className="bookmarked-div" >
       {bookmarkedData.map((res) => (
         <div className="movies-poster-div" key={Math.random() * 1000}>
           <div
@@ -70,6 +74,7 @@ export const Bookmarks = (props: bookmarksProps) => {
           <p className="movies-movieTitle">{res.title}</p>
         </div>
       ))}
+    </div>
     </div>
   );
 };

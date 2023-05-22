@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Url } from "url";
@@ -14,10 +16,15 @@ export type resultObj = {
 type mainProps = {
   result: resultObj[];
   setValue: Function;
+  setPath: Function;
   inputedMainResult: resultObj[];
 };
 
 export const Main = (props: mainProps) => {
+  useEffect(() => {
+    props.setPath(window.location.pathname);
+  }, []);
+
   if (!props.result) return null;
   if (props.inputedMainResult.length === 0) {
     return (
