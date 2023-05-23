@@ -114,22 +114,11 @@ export const TvSeries = (props: TvSeriesProps) => {
             onChange={(e) => props.setValue(e.target.value)}
           ></input>
         </div>
-        <div className="main-TrendingDiv">
-          {props.inputedTvResult.map((res) => (
-            <div className="main-poster-div" key={Math.random() * 100000}>
-              <div className="bookmarkDiv">
-                <FontAwesomeIcon
-                  className="movies-bookmark"
-                  icon={faBookmark}
-                />
-              </div>
-              <img
-                className="main-poster"
-                src={`https://image.tmdb.org/t/p/w500${res.poster_path}` || ""}
-              />
-            </div>
-          ))}
-        </div>
+        <PosterRender
+          classname="main-TrendingDiv"
+          forMap={props.inputedTvResult}
+          innerClassName="main-poster-div"
+        />
       </div>
     );
   }

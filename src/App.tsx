@@ -1,15 +1,14 @@
-import React from "react";
 import "./App.css";
 
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import options from "./options";
 
 import { Navbar } from "./Components/Navbar";
 import { Main } from "./Components/Main";
 import { Bookmarks } from "./Components/Bookmarks";
 import { Movies } from "./Components/Movies";
 import { TvSeries } from "./Components/TvSeries";
+import options from "./options";
 
 function App() {
   const [result, setResult] = useState([]);
@@ -19,14 +18,11 @@ function App() {
   const [mainInput, setMainInput] = useState("");
   const [moviesInput, setMoviesInput] = useState("");
   const [tvInput, setTvInput] = useState("");
-  const [bookmarkInput, setBookmarkInput] = useState("");
 
   const [inputedMainResult, setInputedMainResult] = useState([]);
   const [inputedMoviesResult, setInputedMoviesResult] = useState([]);
   const [inputedTvResult, setInputedTvResult] = useState([]);
-  const [inputedBookmarkResult, setInputedBookmarkResult] = useState([]);
 
-  const [bookmarkIsClicked, setBookmarkIsClicked] = useState(false);
   const [path, setPath] = useState("");
 
   useEffect(() => {
@@ -138,12 +134,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="/bookmarks"
-            element={
-              <Bookmarks setPath={setPath} setValue={setBookmarkInput} />
-            }
-          />
+          <Route path="/bookmarks" element={<Bookmarks setPath={setPath} />} />
         </Routes>
       </div>
     </div>

@@ -1,19 +1,16 @@
 import { useEffect } from "react";
 
 import { PosterRender } from "./PosterRender";
-
 import { resultObj } from "./Main";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 type moviesProps = {
   result2: resultObj[];
   setValue: Function;
   inputedMoviesResult: resultObj[];
   setPath: Function;
-  // handleBookmark: (title: string) => MouseEventHandler;
 };
 
 export const Movies = (props: moviesProps) => {
@@ -54,22 +51,11 @@ export const Movies = (props: moviesProps) => {
             onChange={(e) => props.setValue(e.target.value)}
           ></input>
         </div>
-        <div className="main-TrendingDiv">
-          {props.inputedMoviesResult.map((res) => (
-            <div className="main-poster-div" key={Math.random() * 100000}>
-              <div className="bookmarkDiv">
-                <FontAwesomeIcon
-                  className="movies-bookmark"
-                  icon={faBookmark}
-                />
-              </div>
-              <img
-                className="main-poster"
-                src={`https://image.tmdb.org/t/p/w500${res.poster_path}` || ""}
-              />
-            </div>
-          ))}
-        </div>
+        <PosterRender
+          classname="main-TrendingDiv"
+          forMap={props.inputedMoviesResult}
+          innerClassName="main-poster-div"
+        />
       </div>
     );
   }

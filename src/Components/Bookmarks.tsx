@@ -7,7 +7,6 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { resultObj } from "./Main";
 
 type bookmarksProps = {
-  setValue: Function;
   setPath: Function;
 };
 const obj: resultObj[] = [];
