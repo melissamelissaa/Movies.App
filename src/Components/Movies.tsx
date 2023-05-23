@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 
+import { PosterRender } from "./PosterRender";
+
 import { resultObj } from "./Main";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -30,45 +33,11 @@ export const Movies = (props: moviesProps) => {
             onChange={(e) => props.setValue(e.target.value)}
           ></input>
         </div>
-        <div className="movies-TrendingDiv">
-          {props.result2.map((res) => (
-            <div className="movies-poster-div" key={Math.random() * 1000}>
-              <div
-                className="bookmarkDiv"
-                onClick={() => {
-                  if (localStorage.getItem("Bookmarks")) {
-                    const str: string = localStorage.getItem("Bookmarks") || "";
-                    let arr = JSON.parse(str);
-                    const found = arr.find(
-                      (movie: any) => movie.title === res.title
-                    );
-                    if (!found) {
-                      arr.push(res);
-                    } else {
-                      arr = arr.filter(
-                        (movie: any) => movie.title !== res.title
-                      );
-                    }
-                    localStorage.setItem("Bookmarks", JSON.stringify(arr));
-                  } else {
-                    const arr = [res];
-                    localStorage.setItem("Bookmarks", JSON.stringify(arr));
-                  }
-                }}
-              >
-                <FontAwesomeIcon
-                  className="movies-bookmark"
-                  icon={faBookmark}
-                />
-              </div>
-              <img
-                className="movies-poster"
-                src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
-              />
-              <p className="movies-movieTitle">{res.title}</p>
-            </div>
-          ))}
-        </div>
+        <PosterRender
+          classname="movies-TrendingDiv"
+          forMap={props.result2}
+          innerClassName="movies-poster-div"
+        />
       </div>
     );
   } else {

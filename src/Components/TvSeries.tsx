@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 
+import { PosterRender } from "./PosterRender";
+
 import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
-type obj = {
+export type obj = {
   backdrop_path: string;
   title: string;
   name: string;
@@ -78,6 +80,7 @@ export const TvSeries = (props: TvSeriesProps) => {
             </div>
           ))}
         </div>
+        <PosterRender classname="tvSeries-TrendingDiv" forMap={props.result3} innerClassName="main-poster-div"/>
       </div>
     );
   } else {
