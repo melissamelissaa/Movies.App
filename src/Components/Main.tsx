@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { PosterRender } from "./PosterRender";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as solid } from "@fortawesome/free-solid-svg-icons";
 
 export type resultObj = {
   backdrop_path: string;
@@ -22,9 +23,16 @@ type mainProps = {
   inputedMainResult: resultObj[];
 };
 
+const obj: resultObj[] = [];
+
 export const Main = (props: mainProps) => {
+  const [bookmarkedData, setBookmarkedData] = useState(obj);
+
   useEffect(() => {
     props.setPath(window.location.pathname);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const bookmarked = localStorage.getItem("Bookmarks") || "";
+    if (bookmarked === "") return;
   }, []);
 
   if (!props.result) return null;
@@ -65,10 +73,16 @@ export const Main = (props: mainProps) => {
           {props.inputedMainResult.map((res) => (
             <div className="main-poster-div" key={Math.random() * 100000}>
               <div className="bookmarkDiv">
-                <FontAwesomeIcon
-                  className="movies-bookmark"
-                  icon={faBookmark}
-                />
+                {bookmarkedData.find(
+                  (movie: resultObj) => movie.title === res.title
+                ) ? (
+                  <FontAwesomeIcon className="movies-bookmark" icon={solid} />
+                ) : (
+                  <FontAwesomeIcon
+                    className="movies-bookmark"
+                    icon={faBookmark}
+                  />
+                )}
               </div>
               <img
                 className="main-poster"

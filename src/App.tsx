@@ -30,7 +30,6 @@ function App() {
   const [path, setPath] = useState("");
 
   useEffect(() => {
-    console.log(window.location.pathname);
     setPath(window.location.pathname);
   }, []);
 
@@ -97,7 +96,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.results);
         setInputedTvResult(response.results);
       })
       .catch((err) => console.error(err));

@@ -18,6 +18,8 @@ export const Bookmarks = (props: bookmarksProps) => {
   useEffect(() => {
     props.setPath(window.location.pathname);
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     const bookmarked = localStorage.getItem("Bookmarks") || "";
     if (bookmarked === "") return;
     setBookmarkedData(JSON.parse(bookmarked));

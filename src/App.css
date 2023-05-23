@@ -2,7 +2,6 @@
 :root {
   --color1: #0b121e;
   --color2: #111d33;
-  --color3: rgb(210, 48, 48);
   --color4: #6c83ad;
 }
 body {
@@ -25,7 +24,7 @@ body {
   font-size: 1.5rem;
 }
 .clapperboard {
-  color: var(--color3);
+  color: rgb(210, 48, 48);
   margin-left: 1rem;
   font-size: 2rem;
 }
@@ -94,6 +93,10 @@ body {
   justify-content: center;
   border-radius: 50%;
 }
+.bookmarkDiv:hover {
+  cursor: pointer;
+}
+
 .bookmarked-div,
 .main-TrendingDiv,
 .movies-TrendingDiv,
@@ -130,7 +133,7 @@ body {
     flex-direction: row;
   }
   .navbar {
-    margin: 2rem  0 1rem 1rem;
+    margin: 2rem 0 1rem 1rem;
     width: 5vw;
     height: 90vh;
     flex-direction: column;

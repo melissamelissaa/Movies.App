@@ -18,6 +18,7 @@ type moviesProps = {
 
 export const Movies = (props: moviesProps) => {
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     props.setPath(window.location.pathname);
   }, []);
 
