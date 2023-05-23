@@ -35,7 +35,7 @@ export const Bookmarks = (props: bookmarksProps) => {
           ></input>
         </div>
         <div className="noBookmark">
-        <p className="noBookmark-p">There are no bookmarks yet...</p>
+          <p className="noBookmark-p">There are no bookmarks yet...</p>
         </div>
       </div>
     );
@@ -50,6 +50,7 @@ export const Bookmarks = (props: bookmarksProps) => {
           className="main-input"
         ></input>
       </div>
+      <h1 className="main-trending">Bookmarked Movies</h1>
       <div className="bookmarked-div">
         {bookmarkedData.map((res) => (
           <div className="movies-poster-div" key={Math.random() * 1000}>

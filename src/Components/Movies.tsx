@@ -33,6 +33,7 @@ export const Movies = (props: moviesProps) => {
             onChange={(e) => props.setValue(e.target.value)}
           ></input>
         </div>
+        <h1 className="main-trending">Movies</h1>
         <PosterRender
           classname="movies-TrendingDiv"
           forMap={props.result2}
