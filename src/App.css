@@ -8,6 +8,7 @@
 body {
   margin: 0;
   font-family: "Karla", sans-serif;
+  background-color: var(--color1);
 }
 .navbar {
   position: fixed;
@@ -129,11 +130,13 @@ body {
     flex-direction: row;
   }
   .navbar {
+    margin: 2rem  0 1rem 1rem;
     width: 5vw;
-    height: 100vh;
+    height: 90vh;
     flex-direction: column;
     align-items: center;
     gap: 4.5vw;
+    border-radius: 13px;
   }
   .navbar-sections {
     flex-direction: column;
@@ -141,7 +144,7 @@ body {
     align-items: center;
     width: 100%;
     margin: 0;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .clapperboard {
     margin: 2rem 0 0 0;
