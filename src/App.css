@@ -127,7 +127,7 @@ body {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1080px) {
   .App {
     display: flex;
     flex-direction: row;
@@ -183,5 +183,16 @@ body {
   }
   .bookmarkDiv {
     left: 105%;
+  }
+  .main-input,
+  .movies-input,
+  .tvSeries-input {
+    width: 60vw;
+  }
+
+  .movies-search,
+  .main-search,
+  .tvSeries-search {
+    margin-top: 1.5rem;
   }
 }

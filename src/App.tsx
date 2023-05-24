@@ -36,6 +36,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((response) => {
+        console.log(response.results);
         setResult(response.results);
       })
       .catch((err) => console.error(err));
