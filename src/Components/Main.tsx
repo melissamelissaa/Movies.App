@@ -10,6 +10,7 @@ export type resultObj = {
   original_title: string;
   overview: string;
   poster_path: string;
+  release_date: string;
   title: string;
   name: string;
 };
@@ -23,11 +24,14 @@ type mainProps = {
 
 export const Main = (props: mainProps) => {
   useEffect(() => {
+    //if user is on bottom of the page and page refreshs it's scrolls to the top
     props.setPath(window.location.pathname);
     window.scrollTo({ top: 0, behavior: "smooth" });
     const bookmarked = localStorage.getItem("Bookmarks") || "";
     if (bookmarked === "") return;
   }, []);
+  
+  // if there is no data
 
   if (!props.result) return null;
   if (props.inputedMainResult.length === 0) {

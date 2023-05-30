@@ -6,6 +6,8 @@ import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
+
+
 type moviesProps = {
   result2: resultObj[];
   setValue: Function;
@@ -15,9 +17,12 @@ type moviesProps = {
 
 export const Movies = (props: moviesProps) => {
   useEffect(() => {
+    //if user is on bottom of the page and page refreshs it's scrolls to the top
     window.scrollTo({ top: 0, behavior: "smooth" });
     props.setPath(window.location.pathname);
   }, []);
+
+  
 
   if (props.inputedMoviesResult.length === 0) {
     return (
