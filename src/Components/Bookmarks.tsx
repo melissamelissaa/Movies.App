@@ -84,7 +84,7 @@ export const Bookmarks = (props: bookmarksProps) => {
                   : res.release_date
                   ? res.release_date.split("-")[0]
                   : res.first_air_date.split("-")[0]}{" "}
-                •{res.media_type ? res.media_type : "movie"} •{" "}
+                • {res.media_type ? res.media_type : "movie"} • {" "}
                 {!res.adult ? "G" : "18+"}
               </p>
             ) : null}
