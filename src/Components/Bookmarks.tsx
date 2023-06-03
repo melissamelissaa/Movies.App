@@ -75,6 +75,20 @@ export const Bookmarks = (props: bookmarksProps) => {
               className="movies-poster"
               src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
             />
+
+            {/* checks if data exists and which property to use */}
+            {res ? (
+              <p className="details">
+                {!res.release_date && !res.first_air_date
+                  ? null
+                  : res.release_date
+                  ? res.release_date.split("-")[0]
+                  : res.first_air_date.split("-")[0]}{" "}
+                •{res.media_type ? res.media_type : "movie"} •{" "}
+                {!res.adult ? "G" : "18+"}
+              </p>
+            ) : null}
+
             <p className="movies-movieTitle">{res.title}</p>
           </div>
         ))}

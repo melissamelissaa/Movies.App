@@ -19,8 +19,6 @@ export const PosterRender = (props: PosterRenderProps) => {
   const [bookmarkedData, setBookmarkedData] = useState(objec);
   const [changeValue, setChangeValue] = useState(0);
 
-  
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const bookmarked = localStorage.getItem("Bookmarks") || "";
@@ -31,7 +29,6 @@ export const PosterRender = (props: PosterRenderProps) => {
 
     setBookmarkedData(parsed);
   }, [changeValue]);
-
 
   return (
     <div className={props.classname}>
@@ -73,9 +70,18 @@ export const PosterRender = (props: PosterRenderProps) => {
             src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
           />
 
-
-          <p></p>
-
+          {/* checks if data exists and which property to use */}
+          {res ? (
+            <p className="details">
+              {!res.release_date && !res.first_air_date
+                ? null
+                : res.release_date
+                ? res.release_date.split("-")[0]
+                : res.first_air_date.split("-")[0]}{" "}
+              •{res.media_type ? res.media_type : "movie"} •{" "}
+              {!res.adult ? "G" : "18+"}
+            </p>
+          ) : null}
 
           {res.title ? (
             <p className="movies-movieTitle">{res.title}</p>

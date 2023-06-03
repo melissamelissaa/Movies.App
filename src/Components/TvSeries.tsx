@@ -14,6 +14,10 @@ export type obj = {
   name: string;
   overview: string;
   poster_path: string;
+  release_date: string;
+  media_type: string;
+  adult: boolean;
+  first_air_date: string;
 };
 
 type TvSeriesProps = {
@@ -96,6 +100,10 @@ export const TvSeries = (props: TvSeriesProps) => {
                 className="tvSeries-poster"
                 src={`https://image.tmdb.org/t/p/w500${res.poster_path}`}
               />
+              <p className="details">
+                {res.first_air_date.split("-")[0]} • {res.media_type} •{" "}
+                {!res.adult ? "G" : "18+"}
+              </p>
               <p className="tvSeries-movieTitle">{res.name}</p>
             </div>
           ))}

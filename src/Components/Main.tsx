@@ -10,9 +10,12 @@ export type resultObj = {
   original_title: string;
   overview: string;
   poster_path: string;
-  release_date: string;
   title: string;
   name: string;
+  release_date: string;
+  media_type: string;
+  adult: boolean;
+  first_air_date: string;
 };
 
 type mainProps = {
@@ -30,7 +33,7 @@ export const Main = (props: mainProps) => {
     const bookmarked = localStorage.getItem("Bookmarks") || "";
     if (bookmarked === "") return;
   }, []);
-  
+
   // if there is no data
 
   if (!props.result) return null;

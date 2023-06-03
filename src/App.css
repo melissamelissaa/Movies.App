@@ -110,6 +110,9 @@ body {
 .active {
   color: white;
 }
+.details {
+  color: rgb(137, 136, 136);
+}
 
 .noBookmark {
   display: flex;

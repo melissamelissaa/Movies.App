@@ -6,8 +6,6 @@ import { resultObj } from "./Main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-
-
 type moviesProps = {
   result2: resultObj[];
   setValue: Function;
@@ -21,8 +19,6 @@ export const Movies = (props: moviesProps) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     props.setPath(window.location.pathname);
   }, []);
-
-  
 
   if (props.inputedMoviesResult.length === 0) {
     return (
